@@ -78,7 +78,6 @@ jobs:
       run: terraform plan
       with:
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_agent_client_id: ${{ secrets.TF_VAR_agent_client_id }}
           TF_VAR_agent_client_secret: ${{ secrets.TF_VAR_agent_client_secret }}
           TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
@@ -92,7 +91,6 @@ jobs:
       run: terraform apply -auto-approve
       with:
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TF_VAR_agent_client_id: ${{ secrets.TF_VAR_agent_client_id }}
           TF_VAR_agent_client_secret: ${{ secrets.TF_VAR_agent_client_secret }}
           TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
