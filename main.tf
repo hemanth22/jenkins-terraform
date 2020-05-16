@@ -1,6 +1,20 @@
+# Configure variables
+
+variable "agent_client_id" {}
+
+variable "agent_client_secret" {}
+
+variable "subscription_id" {}
+variable "tenant_id" {}
+
 # Configure the Microsoft Azure Provider.
 provider "azurerm" {
   version = "~>1.31"
+  
+  tenant_id       = "${var.tenant_id}"
+  subscription_id = "${var.subscription_id}"
+  client_id       = "${var.agent_client_id}"
+  client_secret   = "${var.agent_client_secret}"
 }
 
 # Create a resource group
