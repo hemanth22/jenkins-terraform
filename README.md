@@ -1,2 +1,1 @@
-# jenkins-terraform
-jenkins-terraform
+#Jenkins Provision using Terraform in Azure Cloud
