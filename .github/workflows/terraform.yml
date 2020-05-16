@@ -77,10 +77,10 @@ jobs:
     - name: Terraform Plan
       run: terraform plan
       env:
-        TF_VAR_agent_client_id: ${{ secrets.TF_VAR_agent_client_id }}
-        TF_VAR_agent_client_secret: ${{ secrets.TF_VAR_agent_client_secret }}
-        TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
-        TF_VAR_tenant_id: ${{ secrets.TF_VAR_tenant_id }}
+        client_id: ${{ secrets.clientId }}
+        client_secret: ${{ secrets.clientSecret }}
+        subscription_id: ${{ secrets.sub }}
+        tenant_id: ${{ secrets.tenantId }}
       
     
       # On push to master, build or change infrastructure according to Terraform configuration files
@@ -89,7 +89,7 @@ jobs:
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
       env:
-        TF_VAR_agent_client_id: ${{ secrets.TF_VAR_agent_client_id }}
-        TF_VAR_agent_client_secret: ${{ secrets.TF_VAR_agent_client_secret }}
-        TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
-        TF_VAR_tenant_id: ${{ secrets.TF_VAR_tenant_id }}
+        client_id: ${{ secrets.clientId }}
+        client_secret: ${{ secrets.clientSecret }}
+        subscription_id: ${{ secrets.sub }}
+        tenant_id: ${{ secrets.tenantId }}
