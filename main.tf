@@ -1,6 +1,10 @@
 # Configure the Microsoft Azure Provider.
 provider "azurerm" {
   version = "~>1.31"
+  subscription_id = var.sub
+  client_id       = "${var.client_id}"
+  client_secret   = "${var.client_secret}"
+  tenant_id       = "${var.tenant_id}"
 }
 
 # Create a resource group
