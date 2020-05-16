@@ -76,7 +76,11 @@ jobs:
       with:
         tf_actions_version: 0.12.13
         tf_actions_subcommand: "plan"
-        args: '-var="client_secret=${{ secrets.clientSecret }}"'
+      env:
+        TF_VAR_agent_client_id: ${{ secrets.clientId }}
+        TF_VAR_agent_client_secret: ${{ secrets.clientSecret }}
+        TF_VAR_subscription_id: ${{ secrets.subscriptionId }}
+        TF_VAR_tenant_id: ${{ secrets.tenantId }}
     
       # On push to master, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
@@ -85,4 +89,8 @@ jobs:
       with:
          tf_actions_version: 0.12.13
          tf_actions_subcommand: "apply"
-         args: '-var="client_secret=${{ secrets.clientSecret }}"'
+      env:
+        TF_VAR_agent_client_id: ${{ secrets.clientId }}
+        TF_VAR_agent_client_secret: ${{ secrets.clientSecret }}
+        TF_VAR_subscription_id: ${{ secrets.subscriptionId }}
+        TF_VAR_tenant_id: ${{ secrets.tenantId }}
